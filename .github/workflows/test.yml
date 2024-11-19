@@ -42,10 +42,7 @@ jobs:
         with:
           name: cucumber reports
           path: |
-            reports/CucumberAPIReport.html
-            reports/CucumberWEBReport.html
-            reports/Cucumber.html
-            reports/Cucumber.json
+            reports/cucumber-reports.html
 
       - name: Deploy report to Github Pages
         if: always()
