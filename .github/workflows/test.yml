@@ -1,5 +1,6 @@
-name: Run Selenium CI
+name: Run JUnit CI
 
+#Triger / Kapan Action-nya jalan
 on:
   push:
     branches: [ "main" ]
@@ -12,7 +13,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  automation-JUnit:
     runs-on: ubuntu-latest  # windows-latest, macos-latest, ubuntu-18.04,
 
     steps:
@@ -28,7 +29,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1.4.0
         with:
           chrome-version: latest # Ganti dengan 'stable' untuk versi stabil
-          # chrome-options: '--headless' (Jika ingin menjalankan Chrome dalam mode headless)
+          #chrome-options: '--headless' #(Jika ingin menjalankan Chrome dalam mode headless)
 
       - name: Build with Gradle
         run: |
@@ -40,7 +41,7 @@ jobs:
 
       - name: Archive test results
         uses: actions/upload-artifact@v4.3.0
-        if: always() # success() , failure(), canceled()
+        if: always() #always() # success() , failure(), canceled()
         with:
           name: cucumber reports
           path: target/cucumber-reports.html  # Path to test reports
