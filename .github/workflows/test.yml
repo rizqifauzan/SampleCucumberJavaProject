@@ -20,6 +20,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'adoptopenjdk'  # Specify the distribution (e.g., adoptopenjdk, zulu, openjdk)
 
       - name: Install Gradle
         uses: gradle/wrapper-validation-action@v1
