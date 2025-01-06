@@ -45,3 +45,10 @@ jobs:
         with:
           name: cucumber reports
           path: target/cucumber-reports.html  # Path to test reports
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target # Ganti ke folder hasil build (contoh: dist atau build)
+
