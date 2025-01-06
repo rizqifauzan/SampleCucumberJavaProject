@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "classpath:features",
         glue = "stepDefinitions",
-        plugin = {"pretty", "html:target/cucumber-reports.html"}
+        plugin = {"pretty", "html:target/index.html"}
 )
 public class TestRunner {
     // Tes akan dijalankan oleh JUnit 4
