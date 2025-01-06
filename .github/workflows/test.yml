@@ -44,12 +44,12 @@ jobs:
         if: always() #always() # success() , failure(), canceled()
         with:
           name: cucumber reports
-          path: target/cucumber-reports.html  # Path to test reports
+          path: target/index.html  # Path to test reports
 
+       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: target # Ganti ke folder hasil build (contoh: dist atau build)
-
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target
